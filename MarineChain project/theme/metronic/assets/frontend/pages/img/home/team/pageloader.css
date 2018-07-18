@@ -1,0 +1,294 @@
+/*************************************************************
+[TABLE OF CONTENTS]
+
+- BACKGROUND + ICON
+- ICON ANIMATIONS + SPEED + SIZES
+- FADE-OUT + HIDE ANIMATIONS
+- LOADING SENTENCE
+- ANIMATED DOTS
+- CLOSE BUTTON
+- NPROGRESS INTEGRATION
+- MISC
+*************************************************************/
+
+
+/*
+* BACKGROUND + ICON
+*************************************************************/
+/* the background */
+.bonfire-pageloader-background {
+	position:fixed;
+	z-index:99999997;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+    width:100vw;
+	height:100vh;
+	margin:0;
+	padding:0;
+	
+	/* default background color */
+	background-color:#1FB6DB;
+}
+/* the background image*/
+.bonfire-pageloader-background-image {
+	position:fixed;
+	z-index:99999998;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+    width:100vw;
+	height:100vh;
+	margin:0;
+	padding:0;
+    opacity:.2;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+}
+/* the loading icon */
+.bonfire-pageloader-icon-wrapper {
+    display:table;
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:99999999;
+    top:0;
+    left:0;
+    opacity:1;
+}
+.bonfire-pageloader-icon {
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+.bonfire-pageloader-icon svg {
+	/* default icon color */
+	fill:#fff;
+}
+.bonfire-pageloader-icon .icon-wrapper {
+	padding:10px;
+}
+/* never let the loaidng image go beyond screen boundaries */
+.bonfire-pageloader-icon-wrapper img {
+    max-width:90%;
+    min-width:0;
+    height:auto;
+}
+
+
+/*
+* ICON ANIMATIONS + SPEED + SIZES
+*************************************************************/
+/* rotate the icon counter-clockwise */
+.pageloader-counterclockwise {
+	animation:counterclockwise 2s linear infinite;
+	-moz-animation:counterclockwise 2s linear infinite;
+	-webkit-animation:counterclockwise 2s linear infinite;
+}
+@keyframes counterclockwise { 100% { transform:rotate(-360deg); } }
+@-moz-keyframes counterclockwise { 100% { -moz-transform:rotate(-360deg); } }
+@-webkit-keyframes counterclockwise { 100% { -webkit-transform:rotate(-360deg); } }
+/* rotate the icon clockwise */
+.pageloader-clockwise {
+	animation:clockwise 2s linear infinite;
+	-moz-animation:clockwise 2s linear infinite;
+	-webkit-animation:clockwise 2s linear infinite;
+}
+@keyframes clockwise { 100% { transform:rotate(360deg); } }
+@-moz-keyframes clockwise { 100% { -moz-transform:rotate(360deg); } }
+@-webkit-keyframes clockwise { 100% { -webkit-transform:rotate(360deg); } }
+/* fade animation */
+@keyframes fadeAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:.15; }
+  100% { opacity:1; }
+}
+@-moz-keyframes fadeAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:.15; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes fadeAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:.15; }
+  100% { opacity:1; }
+}
+.pageloader-animate-fade {
+    animation:fadeAnimation 1.5s infinite;
+    -moz-animation:fadeAnimation 1.5s infinite;
+    -webkit-animation:fadeAnimation 1.5s infinite;
+}
+/* icon speeds */
+.pageloader-iconspeedslow {
+	animation-duration:2.5s;
+	-moz-animation-duration:2.5s;
+	-webkit-animation-duration:2.5s;
+}
+.pageloader-iconspeedfast {
+	animation-duration:1s;
+	-moz-animation-duration:1s;
+	-webkit-animation-duration:1s;
+}
+.pageloader-iconspeednone {
+	animation-duration:0s;
+	-moz-animation-duration:0s;
+	-webkit-animation-duration:0s;
+}
+/* icon sizes */
+.pageloader-iconsize100 svg {
+	width:100px;
+	height:100px;
+}
+.pageloader-iconsize75 svg {
+	width:75px;
+	height:75px;
+}
+.pageloader-iconsize50 svg {
+	width:50px;
+	height:50px;
+}
+.pageloader-iconsize25 svg {
+	width:25px;
+	height:25px;
+}
+
+
+/*
+* FADE-OUT + HIDE ANIMATIONS
+*************************************************************/
+/* icon/image hide */
+.bonfire-pageloader-icon-hide {
+    opacity:0;
+    left:-1000%;
+}
+/* background fade-out/hide */
+.bonfire-pageloader-hide {
+    opacity:0 !important;
+    left:-1000% !important;
+}
+
+
+/*
+* LOADING SENTENCE
+*************************************************************/
+.bonfire-pageloader-sentence {
+	font-family:'Roboto',arial,tahoma,verdana;
+	font-weight:300;
+	font-size:14px;
+	color:#B0E6F3;
+	text-align:center;
+	cursor:default;
+}
+
+
+/*
+* ANIMATED DOTS
+*************************************************************/
+.bonfire-pageloader-dots {
+    margin:0 auto;
+}
+.bonfire-pageloader-dots .dots-one,
+.bonfire-pageloader-dots .dots-two {
+    display:inline-block;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background-color:#fff;
+}
+/* fade animation */
+@keyframes dotsAnimation {
+  0%   { opacity:1; transform:scale(1);}
+  75%  { opacity:.25; transform:scale(.5);}
+  100% { opacity:1; transform:scale(1);}
+}
+@-moz-keyframes dotsAnimation {
+  0%   { opacity:1; transform:scale(1);}
+  75%  { opacity:.25; transform:scale(.5);}
+  100% { opacity:1; transform:scale(1);}
+}
+@-webkit-keyframes dotsAnimation {
+  0%   { opacity:1; transform:scale(1);}
+  75%  { opacity:.25; transform:scale(.5);}
+  100% { opacity:1; transform:scale(1);}
+}
+.bonfire-pageloader-dots .dots-one-active {
+    animation:dotsAnimation 1s infinite;
+    -moz-animation:dotsAnimation 1s infinite;
+    -webkit-animation:dotsAnimation 1s infinite;
+}
+.bonfire-pageloader-dots .dots-two-active {
+    animation:dotsAnimation 1s infinite;
+    -moz-animation:dotsAnimation 1s infinite;
+    -webkit-animation:dotsAnimation 1s infinite;
+}
+
+
+/*
+* CLOSE BUTTON
+*************************************************************/
+.close-pageloader {	
+    /* remove the flickering effect of a tapped link when on a touch device */
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+    position:absolute;
+    top:0;
+    right:20px;
+    width:100%;
+    opacity:0;
+    cursor:pointer;
+
+    color:#fff;
+    font-family:'Roboto',arial,tahoma,verdana;
+    font-weight:300;
+    font-size:13px;
+    text-align:right;
+
+    transition:all .5s ease 0s;
+    -moz-transition:all .5s ease 0s;
+    -webkit-transition:all .5s ease 0s;
+}
+.close-pageloader-active {
+    opacity:1;
+    top:20px;
+
+    transition:all .5s ease;
+    -moz-transition:all .5s ease;
+    -webkit-transition:all .5s ease;
+}
+
+
+/*
+* NPROGRESS INTEGRATION
+*************************************************************/
+#nprogress-wrapper {
+    position:fixed;
+    z-index:99999999;
+    top:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+    text-align:center;
+    pointer-events:none;
+    
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+#nprogress {
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+#nprogress .bar {
+    width:100%;
+    height:100%;
+}
+
+
+/*
+* MISC
+*************************************************************/
+/* hide PageLoader if so specified */
+.pageloader-hide { display:none; }

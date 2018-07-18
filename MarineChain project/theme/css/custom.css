@@ -1,0 +1,429 @@
+/* 500 error page style */
+
+@media handheld, only screen and (max-width: 780px) {
+    #handheld-detection {
+        display: none;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (min-width: 1024px) {
+    .crash_point_div {
+        border-radius: 50%! important;
+        border:1px solid;
+        position: absolute;
+        top: 70px;
+        right: 280px;
+        z-index: 1000;
+        font-size: 90px;
+        text-align: center;
+        width: 320px;
+        height: 320px;
+        padding: 96px 1px;
+        background-color: #262e3ebd;
+        color : white;
+    }
+
+    .class_divRoundNote {
+        border:none;
+        position: absolute;
+        top: 70px;
+        right: 280px;
+        z-index: 1000;
+        font-size: 90px;
+        text-align: center;
+        width: 320px;
+        height: 320px;
+        padding: 96px 1px;
+        background: 0 0;
+        color : white;
+    }
+}
+
+@media (max-width: 1024px) {
+    .crash_point_div {
+        position: absolute;
+        top: 70px;
+        right: 280px;
+        z-index: 1000;
+        font-size: 50px;
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        padding: 55px 1px;
+
+        color : white;
+    }
+
+    .class_divRoundNote {
+        border:none;
+        position: absolute;
+        top: 70px;
+        right: 280px;
+        z-index: 1000;
+        font-size: 90px;
+        text-align: center;
+        width: 320px;
+        height: 320px;
+        padding: 96px 1px;
+        background: 0 0;
+        color : white;
+    }
+}
+
+
+.faq-ul > li > a {
+    font-size: 16px;
+    line-height: 2;
+    color : #ddd;
+}
+.faq-dl {
+    margin-left : 30px;
+}
+
+.faq-dl > dd > b {
+    font-size : 22px;
+}
+
+.faq-dl > dd > p {
+    font-size: 15px;
+    margin: 20px;
+}
+
+.custom-logout {
+    color: #7b9fbb;
+    font-size: 25px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.custom-logout:hover {
+    color: #fff;
+}
+.class_satoshi_panel {
+    margin-top:15px !important;
+    margin-right:20px !important;
+}
+
+.custom-bitcoin-amount {
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 16px !important;
+}
+
+.custom-bitcoin-amount:hover {
+    background-color: #a51e1f !important;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 16px !important;
+}
+
+.custom-bitcoin-amount:focus {
+    background-color: #a51e1f !important;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 16px !important;
+}
+
+.custom-bitcoin-amount:active {
+    background-color: #a51e1f !important;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 16px !important;
+}
+
+.custom-bitcoin-amount-mobile {
+    display: none;
+    position: absolute;
+    /* background-color: #a51e1f; */
+    /* border: 1px solid #a51e1f; */
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #2196F3;
+    font-weight: bolder;
+    padding: 1px 10px !important;
+    right: 10px;
+    top: 43px
+}
+
+.custom-bitcoin-amount-mobile:hover {
+    display: none;
+    position: absolute;
+    /* background-color: #a51e1f; */
+    /* border: 1px solid #a51e1f; */
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #2196F3;
+    font-weight: bolder;
+    padding: 1px 10px !important;
+    right: 10px;
+    top: 43px
+}
+
+.custom-bitcoin-amount-mobile:focus {
+    display: none;
+    position: absolute;
+    /* background-color: #a51e1f; */
+    /* border: 1px solid #a51e1f; */
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #2196F3;
+    font-weight: bolder;
+    padding: 1px 10px !important;
+    right: 10px;
+    top: 43px
+}
+
+.custom-bitcoin-amount-mobile:active {
+    display: none;
+    position: absolute;
+    /* background-color: #a51e1f; */
+    /* border: 1px solid #a51e1f; */
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #2196F3;
+    font-weight: bolder;
+    padding: 1px 10px !important;
+    right: 10px;
+    top: 43px
+}
+
+.games-log-goodcrash  {
+    color: #00dc76;
+}
+
+.games-log-badcrash  {
+    color: #f5533c;
+}
+
+.games-log-hash {
+    width: 60px;
+}
+
+
+.players-avatar {
+    height: 30px;
+    width: 30px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.players-name {
+    margin-left : 10px;
+    font-size:20px;
+}
+
+.players-line {
+    padding-top: 10px !important;
+    font-size:20px;
+}
+
+.players-line-name {
+    padding-top: 0px !important;
+}
+
+
+.custom-nav {
+    margin-top: 20px;
+}
+
+.custom-nav a{
+    padding: 25px 30px 0 30px;
+    text-decoration: none;
+    /*border:1px solid red;*/
+}
+
+.custom-nav i{
+    font-size: 20px;
+    /*color: #a5d1ff44;*/
+    color: #efefef;
+}
+
+.custom-title-div {
+    /*border: 1px solid red;*/
+    height: 60px;
+    position: absolute;
+    width: 100%;
+    top: 61px;
+    z-index: 999;
+}
+
+.custom-title-label {
+    border-radius: 40px !important;
+    font-size: 20px;
+    margin-top: 12px;
+    font-weight: 500;
+    color: #fff;
+    background: #0663ab94;
+    box-shadow: inset 0 0 6px 1px #3facff;
+    width: 173px;
+    padding: 3px;
+
+}
+
+
+.custom-btn-playnow-a {
+    border: 1px solid #3facff;
+    font-size: 30px;
+    color: #ffffff;
+    border-radius: 10px !important;
+    background: #3facff;
+    box-shadow: 0 3px 10px #0048b5;
+    padding: 20px 90px;
+    position: relative;
+    top: 300px;
+    text-decoration: none !important;
+}
+
+.custom-btn-playnow-a:hover {
+    color: #ffffff;
+    text-shadow: 0 3px 2px #204ea6;
+}
+.custom-bitcoin-amount-homepage {
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    padding: 4px 16px !important;
+    font-weight: 700;
+}
+
+.custom-bitcoin-amount-homepage:hover {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px 16px !important;
+    text-decoration: none;
+    cursor: default;
+}
+
+.custom-bitcoin-amount-homepage:focus {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px 16px !important;
+}
+
+.custom-stop-game {
+    color: #fff;
+    background-color: #9aabbf;
+    border-color: #9aabbf;
+    box-shadow: none;
+}
+.custom-stop-game:focus, .custom-stop-game:active {
+    color: #fff;
+    background-color: #9aabbf;
+    border-color: #9aabbf;
+    box-shadow: none;
+}
+.custom-stop-game:hover{
+    color: #fff;
+    background-color: #f1353d;
+    border-color: #ec111b;
+    box-shadow: 0 1px 1px 1px #f1322f99;
+}
+
+.modeless {
+    top:10%;
+    left:50%;
+    bottom:auto;
+    right:auto;
+    margin-left:-300px;
+}
+
+#id_advertisementContainer_before {
+    position: fixed;
+    right: -75px;
+    width: 100px;
+    height: 90px;
+    margin-bottom : 0;
+    margin-top : 3px;
+    /*border: 1px solid #fff;*/
+    background: #d2dee7;
+    transition: all 0.5s;
+    cursor: pointer;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    border-radius: 15px !important;
+    z-index: 99999999;
+}
+
+#id_advertisementContainer {
+    position: fixed;
+    right: -200px;
+    width: 200px;
+    height: 90px;
+    margin-bottom : 0;
+    margin-top : 3px;
+    border: 1px solid #fff;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 99999999;
+}
+
+.class_sidebarMenuForMobile {
+    display:none !important;
+}
+
+
+.my-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.my-dropdown-content {
+    border-top: 1px solid #17202e;
+    border-bottom: 1px solid #1b4f7b;
+    border-right: 1px solid #1b4f7b;
+    border-left: 1px solid #1b4f7b;
+    top: 30px;
+    display: none;
+    position: absolute;
+    background-color: #17202edb;
+    min-width: 75px;
+    z-index: 9999;
+    left: -10px;
+}
+
+.max-profit {
+    position: absolute;
+    top: -5px;
+    right: 100px;
+}

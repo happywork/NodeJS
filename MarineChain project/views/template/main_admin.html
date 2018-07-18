@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<!-- BEGIN HEAD -->
+{{#def.include('head_admin')}}
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed-mobile page-footer-fixed1">
+
+    <!-- BEGIN HEADER -->
+    {{#def.include('header_admin')}}
+    <!-- END HEADER -->
+    <div class="clearfix"></div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+    	<!-- BEGIN CONTENT -->
+    	<div class="page-content-wrapper">
+        <div class ='page-content'>
+          {{#def.content_admin || ""}}
+        </div>
+      </div>
+    </div>
+    <!-- END CONTAINER -->
+    {{#def.include('footer_admin')}}
+</body>
+</html>

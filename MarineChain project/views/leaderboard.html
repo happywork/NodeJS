@@ -1,0 +1,86 @@
+{{##def.page_title = 'Frequently Asked Questions' #}}
+
+{{##def.content:
+<div class="portlet light">
+    <div class="portlet-body">
+
+        <div class="row">
+            <div class='col-md-12'>
+                <h1>{{=it.translation['leaderboard_title']}}</h1>
+            </div>
+        <div class = 'row'>
+          <div class="col-md-12">
+            <table  class = 'table' style ='text-align: center; font-size:14px;'>
+                <thead>
+                    <tr>
+                        <td>
+                            {{=it.translation['leaderboard_rank']}}
+                        </td>
+                        <td>
+                            {{=it.translation['leaderboard_player']}}
+                        </td>
+                        <td class="ldb-gross">
+                            {{?it.sortBy != 'gross_profit'}}<a href="/leaderboard"><i class="fa fa-sort-desc"></i></a>{{?}} {{=it.translation['leaderboard_grossprofit']}} <strong><a href="/faq#gross-profit">?</a></strong>
+                        </td>
+                        <td class="ldb-net">
+                            {{?it.sortBy != 'net_profit' || it.order != 'DESC' }}<a href="/leaderboard?by=net_desc"><i class="fas fa-sort-down fa-xs"></i></a>{{?}} {{=it.translation['leaderboard_netprofit']}} {{?it.sortBy != 'net_profit' || it.order != 'ASC' }}<a href="/leaderboard?by=net_asc"><i class="fas fa-sort-up fa-xs"></i></a>{{?}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{~it.leaders :leader:index}}
+                        <tr>
+                            <td>
+                                {{=leader.rank}}
+                            </td>
+                            <td>
+                                <a href="/user/{{=leader.username}}">{{=leader.username}}</a>
+                            </td>
+                            <td>
+                                {{#def.format: { n: leader.gross_profit, decimals: 2 } }}
+                            </td>
+                            <td>
+                                {{#def.format: { n: leader.net_profit, decimals: 2 } }}
+                            </td>
+                        </tr>
+                    {{~}}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/global/plugins/respond.min.js"></script>
+<script src="/metronic/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="/metronic/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="/metronic/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<script defer src="/fonts/font-awesome/svg-with-js/js/fontawesome-all.min.js"></script>
+<script src="/metronic/assets/global/scripts/Metronic.js" type="text/javascript"></script>
+<script src="/metronic/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+    Metronic.init();
+    Layout.init();
+})
+</script>
+<!-- END JAVASCRIPTS -->
+#}}
+
+
+{{#def.include('./template/main')}}

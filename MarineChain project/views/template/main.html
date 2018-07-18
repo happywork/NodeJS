@@ -1,0 +1,39 @@
+{{##def.format:param:{{=(param.n/100).toFixed(param.decimals).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}}#}}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- BEGIN HEAD -->
+{{#def.include('head')}}
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed page-sidebar-fixed">
+    <input type ='hidden' id="id_hiddenLanguageCode" value = '{{=it.translation.language_for}}'/></input>
+    <!-- BEGIN HEADER -->
+    {{#def.include('header')}}
+    <!-- END HEADER -->
+    <div class="clearfix"></div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        {{#def.include('sidebar')}}
+        <!-- END SIDEBAR -->
+        <div class="page-content-wrapper">
+            <div class="page-content" style= 'box-shadow: inset 4px 0 20px 10px #232935; height: 881px;'>
+                <!-- BEGIN PAGE CONTENT-->
+                {{#def.content || ""}}
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'ProximaNova-Bold';
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Bold.eot');
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Bold.woff') 
+    format('woff'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Bold.ttf') 
+    format('truetype'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Bold.eot?#iefix') 
+    format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNovaT-Thin';
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNovaT-Thin.eot');
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNovaT-Thin.woff')
+    format('woff'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNovaT-Thin.ttf') 
+    format('truetype'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNovaT-Thin.eot?#iefix') 
+    format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Extrabld';
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Extrabld.eot');
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Extrabld.woff') 
+    format('woff'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Extrabld.ttf') 
+    format('truetype'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Extrabld.eot?#iefix') 
+    format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Regular.eot');
+  src: url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Regular.woff') 
+    format('woff'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Regular.ttf') 
+    format('truetype'),
+       url('https://selfkey.org/wp-content/themes/selfkey.org/assets/fonts/ProximaNova-Regular.eot?#iefix') 
+    format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}

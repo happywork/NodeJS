@@ -1,0 +1,96 @@
+
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="height: 881px;">
+                {{?it.user}}
+                <li class='class_sidebarMenuForMobile'>
+                    <a href="/">
+                        <i class="fas fa-home fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_home']}}</span>
+                    </a>
+                </li>
+                <li class='class_sidebarMenuForMobile'>
+                    <a href="/register/?clang={{=it.translation['language_for']}}">
+                        <i class="far fa-user fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_register']}}</span>
+                    </a>
+                </li>
+                {{?}}
+                <li>
+                    <a href="/" data-backdrop="false" data-toggle="modal">
+                        <i class="fas fa-home fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_home']}}</span>
+                    </a>
+                </li>
+                {{?it.user}}
+                <li>
+                    <a href="/faq">
+                        <i class="far fa-user fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_faq']}}</span>
+                    </a>
+                </li>
+                {{?}}
+                <li>
+                    <a href="/news">
+                        <i class="fab fa-leanpub fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_news']}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/faq">
+                        <i class="far fa-user fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_faq']}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/subscribe">
+                        <i class="fas fa-users fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_subscribes']}}</span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="/admin/news">
+                        <i class="fas fa-users fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_news_list']}}</span>
+                    </a>
+                </li>    
+                <li>
+                    <a href="/#">
+                        <i class="fas fa-users fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_documents']}}</span>
+                    </a>
+                </li>            
+                {{?it.user && it.user.admin}}
+                <li>
+                    <a href="/company/?clang={{=it.translation['language_for']}}">
+                        <i class="fa fa-cogs fa-2x"></i>
+                        <span class="title">{{=it.translation['sidebar_admin']}}</span>
+                    </a>
+                </li>
+                {{?}}
+                {{?it.user}}
+                <li class='class_sidebarMenuForMobile'>
+                    <form action="/logout" method="post" id='id_form_logout'></form>
+                    <a href="javascript:;" onclick='logout();' alt='Logout'>
+                        <i class="fas fa-sign-out-alt fa-2x" data-fa-transform="rotate-180"></i>
+                        <span class="title">{{=it.translation['sidebar_logout']}}</span>
+                    </a>
+                </li>
+                {{?}}
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+    </div>
+    <script>
+    $(function() {
+      $.post('/getBalanceSatoshis',
+        function(data) {
+          $("#id_balanceSatoshis").val(data + 'bits');
+        });
+    });
+
+    function logout() {
+      document.getElementById("id_form_logout").submit();
+    }
+    </script>

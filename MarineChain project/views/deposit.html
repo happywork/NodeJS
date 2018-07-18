@@ -1,0 +1,188 @@
+{{##def.page_title = 'Deposit History' #}}
+{{##def.content_profile:
+
+<link rel="stylesheet" type="text/css" href="/metronic/assets/global/plugins/font-awesome/css/font-awesome.min.css">
+
+
+<div class="portlet light">
+  <div class="portlet-body">
+    <div class="tab-content">
+        <div class = 'row'>
+            <div class = 'col-md-6'>
+                <h2>{{=it.translation['deposit_title_depositaddress']}}</h2>
+            </div>
+            <div class = 'col-md-6' style = 'padding-top:30px; text-align: right;'>
+                <label class='control-label'>
+                    {{?it.user.ETHvsBTCRate}}
+                    ( {{=it.translation['deposit_exchangerate']}} <strong><span style="color:#e2ddff;">{{=it.user.ETHvsBTCRate}}</span></strong> )
+                    {{??}}
+                    ( {{=it.translation['deposit_cantgetexchangerate']}} )
+                    {{?}}
+                </label>
+            </div>
+        </div>
+
+      <hr style = 'margin-top:0'/>
+      <div class = 'row'>
+        <div class = 'col-md-6' style = 'font-size:14px;'>
+          <label class="control-label">{{=it.translation['deposit_bitcoin_depositaddress']}}</label>
+          <!-- <div class="form-group col-md-5" style = 'text-align: right;'>
+            <a href="https://live.blockcypher.com/btc/address/1DLBexdNxvKYgsBHd6B2BJCBUneGZEx5SR">blockcypher</a>
+          </div> -->
+          <div class = 'row'>
+            <div class = 'col-md-12' style = 'font-size: 14px;'>
+                <input type="text" placeholder="" class="form-control" id="btc-address" value = "{{=it.user.deposit_address['BTC']}}" readonly/>
+                <i class="btc fa fa-copy"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="bitcoin:{{=it.user.deposit_address['BTC']}}?message=deposit">{{=it.translation['deposit_bitcoin_link']}}</a>
+            </div>
+          </div>
+          <br />
+          <div class = 'row'>
+            <div class = 'col-md-6'>
+                <div style = 'margin:0 auto; width:100%; height:50%;' align = 'center'>
+                    <img class="show-for-medium-up qr" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=%20{{=it.user.deposit_address['BTC']}}" width = "150px" alt="">
+                </div>
+            </div>
+            <div class = 'col-md-6' style = 'font-size: 14px;'>
+              <p>
+                  {{=it.translation['deposit_bitcoin_sentence_1']}}
+                  {{=it.translation['deposit_bitcoin_sentence_2_part_1']}}<a href = 'https://blockchain.info/address/{{=it.user.deposit_address["BTC"]}}'>blockchain.info</a>{{=it.translation['deposit_bitcoin_sentence_2_part_2']}}<strong>BTC</strong>{{=it.translation['deposit_bitcoin_sentence_2_part_3']}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class = 'col-md-6' style = 'font-size:14px;'>
+          <label class="control-label">{{=it.translation['deposit_ethereum_depositaddress']}} &nbsp;&nbsp;&nbsp;
+
+          </label>
+          <!-- <div class="form-group col-md-5" style = 'text-align: right;'>
+            <a href="https://live.blockcypher.com/btc/address/1DLBexdNxvKYgsBHd6B2BJCBUneGZEx5SR">blockcypher</a>
+          </div> -->
+          <div class = 'row'>
+            <div class = 'col-md-12' style = 'font-size: 14px;'>
+                <input type="text" placeholder="" class="form-control" id="eth-address" value = "{{=it.user.deposit_address['ETH']}}" readonly/>
+                <i class="eth fa fa-copy"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="ethereum:{{=it.user.deposit_address['ETH']}}?message=deposit">{{=it.translation['deposit_ethereum_link']}}</a>
+            </div>
+          </div>
+          <br />
+          <div class = 'row'>
+            <div class = 'col-md-6'>
+                <div style = 'margin:0 auto; width:100%; height:50%;' align = 'center'>
+                  <img class="show-for-medium-up qr" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=%20{{=it.user.deposit_address['ETH']}}" width = "150px" alt="">
+                </div>
+            </div>
+            <div class = 'col-md-6' style = 'font-size: 14px;'>
+              <p>
+                  {{=it.translation['deposit_ethereum_sentence_part_1']}}<a href = 'https://etherscan.io/address/{{=it.user.deposit_address['ETH']}}'>etherscan.io</a>{{=it.translation['deposit_ethereum_sentence_part_2']}}<strong>ETH</strong>{{=it.translation['deposit_ethereum_sentence_part_3']}}.
+              </p>
+            </div>
+          </div>
+
+          <label class="control-label">{{=it.translation['deposit_ethereum_yourdepositaddress']}}</label>
+          <div class = 'row'>
+            <div class = 'col-md-12' style = 'font-size: 14px;'>
+                <input type="text" placeholder="" class="form-control" id="eth-src" value = "{{?it.user.deposit_src}}{{=it.user.deposit_src}}{{?}}" />
+                <script type="text/javascript">
+                  function onSave(){
+                    var eth_src = document.getElementById('eth-src').value;
+                    if (eth_src.length != 42) {
+                      alert('The length of input string is not valid.');
+                      return;
+                    }
+                    var re = /[0-9A-Fa-f]{40}/g;
+                    var t = eth_src.substring(2, 42);
+                    if (!re.test(t)) {
+                      alert('The input string is not a hexadecimal value.');
+                      return;
+                    }
+                    $.post("/save_eth_src", {eth_src: eth_src}, function(data, status){
+                      if (status == "success") alert("Your deposit address saved successfully.");
+                      else alert("Error occurred: " + status);
+                    })
+                  }
+                </script>
+                <input type="button" class="form-control", id="save" value="{{=it.translation['deposit_ethereum_save']}}" onclick="onSave();">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <h2 style = 'margin-top:60px;'>{{=it.translation['deposit_title_deposithistory']}}</h2>
+      {{?it.user.deposits.length > 0}}
+      <table class="table table-hover">
+        <thead style = 'color:#fefefe;'>
+          <tr>
+            <th style="text-align: right;">{{=it.translation['deposit_table_header_bits']}}</th>
+            <th style="text-align: right;">{{=it.translation['deposit_table_header_amounts']}}</th>
+            <th style="text-align: center;">{{=it.translation['deposit_table_header_currency']}}</th>
+            <th style="text-align: center;">{{=it.translation['deposit_table_header_transaction']}}</th>
+            <th style="text-align: center;">{{=it.translation['deposit_table_header_created']}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{~it.user.deposits :deposit:index}}
+            <tr>
+                <td style="text-align: right;">{{#def.format: {n: deposit.amount, decimals: 2 } }}</td>
+                <td style="text-align: right;">{{=deposit.baseunit}}</td>
+                <td style="text-align: center;">{{=deposit.currency}}</td>
+                {{?deposit.currency == 'BTC'}}
+                    <td style="text-align: center;"><a href="https://blockchain.info/tx/{{=deposit.txid}}" target="_blank">{{=it.translation['deposit_table_link']}}</a></td>
+                {{??}}
+                    <td style="text-align: center;"><a href="https://etherscan.io/tx/{{=deposit.txid}}" target="_blank">{{=it.translation['deposit_table_link']}}</a></td>
+                {{?}}
+                <td class="show-for-medium-up" style="text-align: center;">{{=deposit.created}}</td>
+            </tr>
+          {{~}}
+        </tbody>
+      </table>
+      {{??}}
+        <br />
+        <p style = 'margin-left : 15px; font-size:18px;'>{{=it.translation['deposit_nodeposit']}}</p>
+      {{?}}
+    </div>
+  </div>
+</div>
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/global/plugins/respond.min.js"></script>
+<script src="/metronic/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="/metronic/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="/metronic/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<script defer src="/fonts/font-awesome/svg-with-js/js/fontawesome-all.min.js"></script>
+<script src="/metronic/assets/global/scripts/Metronic.js" type="text/javascript"></script>
+<script src="/metronic/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+    Metronic.init();
+    Layout.init();
+});
+function copyBtcAddress() {
+  var copyText = document.querySelector("#btc-address");
+  copyText.select();
+  document.execCommand("copy");
+};
+document.querySelector(".icon-note.btc").addEventListener("click", copyBtcAddress);
+function copyEthAddress() {
+  var copyText = document.querySelector("#eth-address");
+  copyText.select();
+  document.execCommand("copy");
+};
+document.querySelector(".icon-note.eth").addEventListener("click", copyEthAddress);
+
+</script>
+#}}
+{{#def.include('./template/main_profile')}}

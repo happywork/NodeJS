@@ -1,0 +1,301 @@
+.logo-default {
+    width: 130px;
+}
+
+.custom-form-group {
+    margin-bottom: 0px !important;
+}
+
+.custom-form-body {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.custom-md-radio {
+    margin-bottom: 0px !important;
+}
+
+.custom-md-radio-list {
+    margin-bottom: 0px !important;
+}
+
+.custom-portlet-body {
+    border-bottom: none !important;
+}
+
+.page-header.navbar .menu-toggler.responsive-toggler {
+    margin : 8px 14px 0 6px;
+}
+.tabbable-custom > .nav-tabs > li.active {
+    border-right: none;
+    border-left: none;
+}
+
+.tabbable-custom > .nav-tabs {
+    position: absolute;
+    left: 6px;
+    width: 10px;
+    margin-top: 3px;
+}
+
+.tabbable-custom > .nav-tabs > li {
+    height: 45px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.custom-customscript-button {
+    margin-top: 3px !important;
+    float:right;
+    padding-right : 0;
+    width: 89%;
+}
+
+
+.custom-customscript-button button{
+    width: 49% !important;
+}
+
+.custom-customscript-button button:nth-child(1){
+    margin-bottom: 0 !important;
+}
+
+.custom-customscript-button-parent-form-group {
+    margin-bottom: 0 !important;
+
+}
+
+.page-top {
+    display: none !important;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    margin : 5px 0 0 0;
+}
+
+.page-header.navbar .page-logo {
+    height: 35px;
+}
+
+.page-header.navbar {
+    min-height: 40px;
+}
+
+.custom-top-menu {
+    /*padding-left: 5px !important;*/
+    display: none;
+
+}
+
+#tab_history .portlet-body {
+    border: none;
+    padding: 0;
+}
+
+#id_liLanguage {
+    padding-top:3px !important;
+}
+
+#id_liFullscreen {
+    display: none;
+}
+
+#chatModal.modeless {
+    top:20%;
+    left:100%;
+    bottom:auto;
+    right:auto;
+}
+
+#tab_chat .portlet {
+    padding: 0 !important;
+}
+
+#tab_auto .form-body {
+    padding: 0 !important;
+}
+
+#tab_players .portlet-body {
+    padding: 0 !important;
+    border:none !important;
+}
+
+.col-xs-5.control-label {
+    padding: 0;
+    margin-top: 4px;
+}
+#id_divChart {
+    margin-top: -15px;
+}
+
+.class_satoshi_panel {
+    margin-top:19px !important;
+    margin-right:0px !important;
+}
+
+.custom-bitcoin-amount {
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    padding: 7px 10px !important;
+}
+
+.custom-control-tab-li {
+    width:48px !important;
+}
+
+.custom-tab-menu {
+    padding : 5px 0px !important;
+}
+
+.nav-tabs > li > a, .nav-pills > li > a {
+    font-size: 12px !important;
+}
+
+.bet-button-container {
+    height: 66px !important;
+    margin-top:0px !important;
+}
+
+.bet-button {
+    font-size: 19px !important;
+}
+
+.custom-hotkey-div {
+    display:none !important;
+
+}
+
+.custom-login-register-btn {
+    width: 84px !important;
+}
+
+.custom-login-play-btn {
+    margin-top : 0 !important;
+    height : 35px !important;
+    font-size: 17px !important;
+    -webkit-border-radius: 2px !important;
+    -moz-border-radius: 2px !important;
+    border-radius: 2px !important;
+}
+
+.custom-title-div {
+    display : none;
+}
+
+.custom-nav {
+    padding-left:0;
+    margin-top: 15px;
+}
+
+.custom-nav a {
+    padding : 15px 10px 0 10px !important;
+}
+
+.custom-homepage-container {
+    width : 100% !important;
+}
+
+.custom-homepage-right-ul {
+    margin-top : 3px !important;
+}
+
+.custom-homepage-login-li {
+    float: right;
+    margin-top: -2px;
+    margin-right: 25px;
+}
+
+.custom-homepage-language-li {
+    float: right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.custom-homepage-user-li {
+    float: right;
+    margin-top: -3px;
+}
+
+.custom-btn-playnow-div {
+    background : 0 0 !important;
+}
+
+.custom-homepage-totalMemberProfit {
+    margin-left: -15px;
+    height: 30px !important;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a {
+    padding: 3px 15px 3px 15px !important;
+}
+
+.custom-bitcoin-amount-homepage {
+    position: absolute;
+    z-index: 99;
+    right: 20px;
+    top: 55px;
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    padding: 0px 5px !important;
+}
+.custom-bitcoin-amount-mobile {
+    display: block;
+    text-decoration: none;
+}
+.custom-bitcoin-amount-mobile:active {
+    text-decoration: none;
+    display: block;
+}
+.custom-bitcoin-amount-mobile:focus {
+    display: block;
+    text-decoration: none;
+}
+.custom-bitcoin-amount-mobile:hover {
+    display: block;
+    text-decoration: none;
+}
+
+.custom-chart {
+    width: 140% !important;
+    margin-left: -15%;
+}
+
+#id_imgAvatar {
+    width: 20% !important;
+}
+
+.class_sidebarMenuForMobile {
+    display: block !important;
+}
+
+.dropdown > .dropdown-menu:before, .dropdown-toggle > .dropdown-menu:before, .btn-group > .dropdown-menu:before{
+    left: 55px;
+}
+
+.dropdown > .dropdown-menu:after, .dropdown-toggle > .dropdown-menu:after, .btn-group > .dropdown-menu:after{
+    left: 56px;
+}
+
+#id_advertisementContainer_before {
+    top: 60px;
+    height: 40px;
+    -webkit-border-radius: 9px !important;
+    -moz-border-radius: 9px !important;
+    border-radius: 9px !important;
+}
+
+#id_advertisementContainer {
+    top: 60px;
+    height: 40px;
+}

@@ -1,0 +1,181 @@
+.custom-autotab-div {
+    padding-right: 0 !important;
+
+}
+
+.custom-form-group {
+    margin-bottom: 8px !important;
+}
+
+.custom-form-body {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.custom-md-radio {
+    margin-bottom: 0px !important;
+}
+
+.custom-md-radio-list {
+    margin-bottom: 0px !important;
+}
+
+.custom-portlet-body {
+    border-bottom: none !important;
+}
+
+.custom-control-label {
+    font-size: 13px !important;
+    padding: 0 2px 0 2px !important;
+}
+
+.custom-input-div {
+    padding : 3px 4px !important;
+}
+
+.custom-basebet-label {
+    margin-top: 10px !important;
+}
+
+.custom-manual-autocashout-label {
+    padding-right : 0 !important;
+    padding-left : 0 !important;
+}
+
+.custom-customscript-button {
+    margin-top: 185px;
+    float:right;
+    padding-right : 0px;
+    margin-right: -7px;
+}
+
+#id_divRecentHistory .table-hover {
+    font-size: 13px !important;
+}
+
+.custom-top-menu {
+    padding-left:7px !important;
+}
+
+#id_liLanguage {
+    padding-top:3px !important;
+}
+
+#id_liFullscreen {
+    /*display: none;*/
+}
+
+#historyModal.modeless {
+    top:20%;
+    left:50%;
+    bottom:auto;
+    right:auto;
+}
+#chatModal.modeless {
+    top:20%;
+    left:50%;
+    bottom:auto;
+    right:auto;
+}
+
+.class_satoshi_panel {
+    margin-top:17px !important;
+    margin-right:0px !important;
+}
+
+.custom-bitcoin-amount {
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    padding: 7px 10px !important;
+}
+
+.custom-bitcoin-amount-homepage {
+    position: absolute;
+    z-index: 99;
+    right: 20px;
+    top: 55px;
+    background-color: #a51e1f;
+    border: 1px solid #a51e1f;
+    border-radius: 25px !important;
+    font-size: 21px;
+    color: #fff;
+    font-weight: 700;
+    padding: 0px 5px !important;
+}
+
+.custom-tab-menu {
+    /*padding : 5px 15px !important;*/
+}
+
+.bet-button-container {
+    height: 55px !important;
+}
+
+.custom-login-play-btn {
+    /*margin-top : 0 !important;*/
+    /*height : 55px !important;*/
+}
+
+.custom-title-div {
+    display : none;
+}
+
+.custom-nav {
+    margin-top: 10px;
+}
+
+.custom-nav a {
+    padding : 15px 20px 0 20px !important;
+}
+
+.custom-homepage-container {
+    width : 100% !important;
+}
+
+.custom-homepage-right-ul {
+    margin-top : 3px !important;
+}
+
+.custom-homepage-login-li {
+    float: right;
+    margin-top: -2px;
+    margin-right: 25px;
+    border-right: none !important;
+}
+
+.custom-homepage-language-li {
+    float: right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.custom-homepage-user-li {
+    float: right;
+    margin-top: -3px;
+}
+
+.custom-btn-playnow-div {
+    background : 0 0 !important;
+}
+
+.custom-homepage-totalMemberProfit {
+    margin-left: -15px;
+    height: 90px !important;
+}
+
+.dashboard-stat.blue-soft .details .number {
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.dashboard-stat.blue-soft .details .desc {
+    font-size:17px;
+}
+
+#id_imgAvatar {
+    width: 30% !important;
+}

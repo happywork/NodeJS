@@ -1,0 +1,283 @@
+{{##def.page_title = 'Deposit History' #}}
+{{##def.content_profile:
+<style>
+.class_labelCoinType{
+  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(53, 152, 220, 0.08);
+}
+
+.class_labelCoinType:hover{
+  color: rgba(255, 255, 255, 1);
+  background-color: rgb(34, 103, 150);
+}
+
+.class_labelCoinType.active{
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(53, 152, 220, 1);
+}
+</style>
+<div class="portlet light">
+  <div class="portlet-body">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{=it.translation['withdraw_title_requestawithdrawal']}}</h2>
+        <div class = 'row'>
+          <div class = 'col-md-7 col-sm-7'>
+            <form  action="/withdraw" method="post" id = 'id_formRequest'>
+              <input style="display:none" type="text" name="fakeusernameremembered"/>
+              <input style="display:none" type="password" name="fakepasswordremembere"/>
+              <div class="form-group">
+                <label class="control-label">{{=it.translation['withdraw_bitsamount']}} &nbsp;&nbsp;&nbsp;
+                  {{?it.user.ETHvsBTCRate}}
+                  ( {{=it.translation['withdraw_exchangerate']}}<strong><span style="color:#e2ddff;">{{=it.user.ETHvsBTCRate}}</span></strong> )
+                  {{??}}
+                  ( {{=it.translation['withdraw_cantgetexchangerate']}} )
+                  {{?}}
+                </label>
+
+                <div class = 'row'>
+                  <div class = 'col-md-5 col-sm-5'>
+                    <div class="input-group">
+                      <input class="form-control" type="number" name="amount_bit" id='id_inputAmountBITS' placeholder="{{= it.miningFeeBits + 100 }}" min="{{= it.miningFeeBits + 100 }}" step=".01" required/>
+                      <span class="input-group-addon" style = 'color: #efefef; border: none; background: #41495f;'>bits</span>
+                    </div>
+                  </div>
+                  <div class = 'col-md-2 col-sm-2' align = 'center'>
+                    <label class="control-label" style = 'font-size: 24px; transform: scale(1.5, 1.5);'> = </label>
+                  </div>
+                  <div class = 'col-md-5 col-sm-5'>
+                    <div class="input-group">
+                      <input class="form-control" type="number" name="amount_btc" id='id_inputAmountBTC'
+                            step=".01"
+                            readonly style = 'background : 0 0'/>
+                      <span class="input-group-addon" style = 'color: #efefef; border: none; background: #41495f;'>btc</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class = 'row'>
+                  <div class = 'col-md-5 col-sm-5'>
+                  </div>
+                  <div class = 'col-md-2 col-sm-2' align = 'center'>
+                    <label class="control-label" style = 'font-size: 24px; transform: scale(1.5, 1.5);'> = </label>
+                  </div>
+                  <div class = 'col-md-5 col-sm-5'>
+                    <div class="input-group">
+                      <input class="form-control" type="number" name="amount_eth" id='id_inputAmountETH'
+                             step=".01"
+                             readonly style = 'background : 0 0'/>
+                      <span class="input-group-addon" style = 'color: #efefef; border: none; background: #41495f;'>eth</span>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class = 'col-md-4 col-sm-4'>
+                        <div class="form-group">
+                            <label class="control-label">Fee</label>
+                            <input class="form-control" name="fee" type="text" id="fee" readonly
+                                   style="  background: 0 0;
+                            border: none;
+                            cursor: default;
+                            text-align: right;
+                            border-bottom: 1px solid #41495f; " required/>
+                        </div>
+                    </div>
+                    <div class = 'col-md-4 col-sm-4'>
+                        <div class="form-group">
+                            <label class="control-label">Total Amount</label>
+                            <input class="form-control" name="all" type="text" id="all" readonly
+                                   style="  background: 0 0;
+                            border: none;
+                            cursor: default;
+                            text-align: right;
+                            border-bottom: 1px solid #41495f; " required/>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+              <div class="form-group">
+                <div class = 'row'>
+                  <div class = 'col-md-7'>
+                    <label class="control-label" id="id_labelAddressTitle">{{=it.translation['withdraw_destinationaddress']}}(BTC)</label>
+                  </div>
+                  <div class = 'col-md-5' align = 'right'>
+                    <div class="clearfix">
+                      <div class="btn-group btn-group" data-toggle="buttons">
+                        <label class="btn class_labelCoinType active">
+                          <input type="radio" class="toggle" value = 'BTC'> BTC
+                        </label>
+                        <label class="btn class_labelCoinType">
+                          <input type="radio" class="toggle" value = 'ETH'> ETH
+                        </label>
+                      </div>
+                      <input type = 'hidden' name='cointype' value = 'BTC' id='id_hiddenCoinType'/>
+                    </div>
+                  </div>
+                  <div class = 'col-md-12'>
+                    <input class="form-control"  type="text" id="destination" name="destination" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">{{=it.translation['withdraw_yourpassword']}}</label>
+                <input class="form-control" type="password" id="password" name="password" autocomplete="off"/>
+              </div>
+              {{?it.user.mfa_secret}}
+              <div class="form-group">
+                <label for="otp" class="control-label">{{=it.translation['withdraw_2facode']}}</label>
+                <input class="form-control" type="text" id="otp" name="otp" autocomplete="off" pattern="[0-9]{6}" required/>
+              </div>
+              {{?}}
+              <div class="form-group" align = 'right'>
+                <button class="btn btn-primary" type = 'submit'>{{=it.translation['withdraw_submit']}}</button>
+              </div>
+              <input type="hidden" name="withdrawal_id" value="{{= it.id}}" />
+
+
+
+              <!-- <div class="margiv-top-10 pull-right">
+                <a href="javascript:;" class="btn green-haze">
+                Submit</a>
+              </div> -->
+            </form>
+          </div>
+          <div class = 'col-md-5 col-sm-5'>
+            <div class="portlet light">
+              <p style = 'margin-top : 8px;'> {{=it.translation['withdraw_sentence_1_part_1']}}{{= it.miningFeeBits + 100 }}{{=it.translation['withdraw_sentence_1_part_2']}}{{= it.miningFeeBits }}{{=it.translation['withdraw_sentence_1_part_3']}}{{= it.miningFeeBits }}{{=it.translation['withdraw_sentence_1_part_4']}}</p><br>
+              <p style= 'font-size:16px;'> <strong>{{=it.translation['withdraw_sentence_2_part_1']}}</strong>{{=it.translation['withdraw_sentence_2_part_2']}}</p>
+              <div class="margiv-top-10">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {{?it.warning}}
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close-alert" data-dismiss="alert" aria-hidden="true"></button>
+        <strong>Warning!&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{!it.warning}}
+      </div>
+    {{?}}
+
+    {{?it.success}}
+      <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close-alert" data-dismiss="alert" aria-hidden="true"></button>
+        <strong>Success!&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{!it.success}}
+      </div>
+    {{?}}
+
+    <div class = 'row'>
+      <div class = 'col-md-8'>
+        <h2>{{=it.translation['withdraw_title_withdrawhistory']}}</h2>
+      </div>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-md-12'>
+        {{?it.user.withdrawals && it.user.withdrawals.length > 0}}
+        <table class="table table-hover">
+          <thead style = 'color:#fefefe;'>
+            <tr>
+              <th style="text-align: right;">{{=it.translation['withdraw_table_header_bits']}}</th>
+              <th style="text-align: right;">{{=it.translation['withdraw_table_header_amounts']}}</th>
+              <th style="text-align: right;">Fee</th>
+              <th style="text-align: center;">{{=it.translation['withdraw_table_currency']}}</th>
+              <th style="text-align: center;">{{=it.translation['withdraw_table_destination']}}</th>
+              <th style="text-align: center;">{{=it.translation['withdraw_table_status']}}</th>
+              <th style="text-align: center;">{{=it.translation['withdraw_table_created']}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{~it.user.withdrawals :withdrawal:index}}
+              <tr>
+                <td style="text-align: right;">{{#def.format: {n: withdrawal.amount, decimals: 2 } }}</td>
+                <td style="text-align: right;">{{=-withdrawal.baseunit}}</td>
+                <td style="text-align: right;">{{=withdrawal.fee}}</td>
+                <td style="text-align: center;">{{=withdrawal.currency}}</td>
+                <td>
+                    {{=withdrawal.destination}}
+                </td>
+                <td style="text-align: center;">
+                    {{?withdrawal.status}}
+                         <a href="https://blockchain.info/tx/{{=withdrawal.status}}" target="_blank">{{=it.translation['withdraw_table_transferred']}}</a>
+                    {{??}}
+                        {{=it.translation['withdraw_table_inprogress']}}
+                    {{?}}
+                </td>
+                <td style="text-align: center;">{{=withdrawal.created}}</td>
+              </tr>
+            {{~}}
+          </tbody>
+        </table>
+        {{??}}
+            <br>
+            <br>
+            <br>
+            <p style = 'margin-left : 15px; font-size:18px;'>{{=it.translation['withdraw_nowithdraw']}}</p>
+        {{?}}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/global/plugins/respond.min.js"></script>
+<script src="/metronic/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="/metronic/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="/metronic/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="/metronic/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script defer src="/fonts/font-awesome/svg-with-js/js/fontawesome-all.min.js"></script>
+<!-- END CORE PLUGINS -->
+<script src="/metronic/assets/global/scripts/Metronic.js" type="text/javascript"></script>
+<script src="/metronic/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+    Metronic.init();
+    Layout.init();
+
+    $('.class_labelCoinType').click(function() {
+      var type= $(this).children().first().val();
+      $("#id_hiddenCoinType").val(type);
+      $("#id_labelAddressTitle").text("Destination Address  (" + type + ")");
+    });
+
+    $('#id_inputAmountBITS').keyup(function() {
+        var nBits = $("#id_inputAmountBITS").val();
+        var fBTC = nBits  / 1e6;
+        var fETH = fBTC / {{=it.user.ETHvsBTCRate}};
+        var nFee = parseInt(nBits / 100);
+        var nTotalAmount = parseInt(nBits) + parseInt(nFee);
+      $("#id_inputAmountETH").val(fETH);
+      $("#id_inputAmountBTC").val(nBits / 1e6);
+      $("#fee").val(nFee);
+      $("#all").val(nTotalAmount);
+    });
+
+    $('#id_inputAmountBITS').change(function() {
+        var nBits = $("#id_inputAmountBITS").val();
+        var fBTC = nBits  / 1e6;
+        var fETH = fBTC / {{=it.user.ETHvsBTCRate}};
+        $("#id_inputAmountETH").val(fETH);
+        $("#id_inputAmountBTC").val(nBits / 1e6);
+    });
+
+})
+
+</script>
+#}}
+{{#def.include('./template/main_profile')}}

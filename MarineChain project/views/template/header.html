@@ -1,0 +1,46 @@
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="/?clang={{=it.translation['language_for']}}"><img src="/metronic/assets/frontend/pages/img/logo.png" alt="logo" class="logo-default"/></a>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<script src = '/vendor/jquery-fullscreen/jquery.fullscreen.min.js'></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $(document).on('click', '.class_liLanguage', function() {
+        var current_url = window.location.href;
+        var language_code = $(this).attr('language_code');
+        $("#id_formSetLanguage").find("[name='current_url']").val(current_url);
+        $("#id_formSetLanguage").find("[name='language_code']").val(language_code);
+        $("#id_formSetLanguage").submit();
+    });
+
+    $("#id_linkToggleFullScreen").on('click', function() {
+        if($(this).hasClass('open')) {
+            $('body').fullscreen();
+            $(this).removeClass('open');
+            $(this).html('<i class="fas fa-compress fa-lg"></i>');
+        } else {
+            $.fullscreen.exit();
+            $(this).addClass('open');
+            $(this).html('<i class="fas fa-expand-arrows-alt fa-lg"></i>');
+        }
+        return;
+    });
+
+});
+
+
+
+
+</script>
